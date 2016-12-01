@@ -1,0 +1,16 @@
+
+<div class="tableDiv">
+<button class="updateTableBtn" data-ng-click="pass"><</button>
+<table *ngIf="results" class="table">
+  <tbody *ngFor="let e of results; let i=index">
+    <tr>
+      <th colspan="2">{{e.eventFrom}} - {{e.eventTo}}</th>
+    </tr>
+    <tr>
+      <td>{{e.eventFrom}} - {{e.eventTo}}</td>
+      <td>{{e.activity.activityDescription}}</td>
+    </tr>
+  </tbody>
+</table>
+<button class="updateTableBtn" ng-click="feature">></button>
+</div>
