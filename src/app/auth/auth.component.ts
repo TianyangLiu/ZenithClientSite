@@ -28,7 +28,7 @@ export class AuthComponent implements OnInit {
         err => console.log("verify error" + err) // TODO: handle error
       );
 
-      this.isHidden = false;
+      //this.isHidden = false;
   }
 
   onVerifyResult(token: Token) {

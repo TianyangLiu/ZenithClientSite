@@ -24,22 +24,24 @@ export class EventComponent implements OnInit {
     var date = new Date();
     let numberOfWeek = +localStorage.getItem('time');
     var nextweek = new Date(date.getTime() + numberOfWeek*((24*60*60*1000)*7));
-    var timestring = nextweek.getFullYear +"-"+nextweek.getMonth+"-"+nextweek.getDate; 
+    var timestring = nextweek.getFullYear() +"-"+(nextweek.getMonth()+1)+"-"+nextweek.getDate(); 
     this.eventService.getFeature(timestring).subscribe(
       data => { this.results = data; },
       error => console.log(error)
     );
+    localStorage.setItem('time',''+(numberOfWeek+1));
   }
 
   pass() {
     var date = new Date();
     let numberOfWeek = +localStorage.getItem('time');
-    var passweek = new Date(date.getTime() - numberOfWeek*((24*60*60*1000)*7));
-    var timestring = passweek.getFullYear +"-"+passweek.getMonth+"-"+passweek.getDate; 
+    var passweek = new Date(date.getTime() + numberOfWeek*((24*60*60*1000)*7));
+    var timestring = passweek.getFullYear() +"-"+(passweek.getMonth()+1)+"-"+passweek.getDate(); 
     this.eventService.getPass(timestring).subscribe(
       data => { this.results = data; },
       error => console.log(error)
     );
+    localStorage.setItem('time',''+(numberOfWeek-1));
   }
 
 }
